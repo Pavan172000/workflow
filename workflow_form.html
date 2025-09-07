@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BIS Workflow Management – Workflow Form</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body data-page="workflow_form">
+  <header>
+    <h1>BIS Workflow Management</h1>
+    <nav>
+  <a class="nav-link" href="status_dashboard.html">Status Dashboard</a>
+  <a class="nav-link" href="workflow_form.html">Workflow Form</a>
+  <a class="nav-link" href="completed.html">Completed Tasks</a>
+</nav>
+  </header>
+  <main>
+    <h2>Workflow Form</h2>
+    <form id="workflowForm" autocomplete="on">
+      <input type="hidden" id="id" name="id" />
+
+      <h3>Workflow Manager Section</h3>
+      <div class="row">
+        <div class="col-6">
+          <label for="workflowName">Workflow Name</label>
+          <input type="text" id="workflowName" name="workflowName" required />
+        </div>
+        <div class="col-6">
+          <label for="clientEmail">Client Email</label>
+          <input type="email" id="clientEmail" name="clientEmail" required />
+        </div>
+        <div class="col-6">
+          <label for="receivedDateTime">Received Date/Time</label>
+          <input type="datetime-local" id="receivedDateTime" name="receivedDateTime" required />
+        </div>
+        <div class="col-6">
+          <label for="deadline">Deadline</label>
+          <input type="datetime-local" id="deadline" name="deadline" required />
+        </div>
+        <div class="col-4">
+          <label for="researcher">Researcher</label>
+          <select id="researcher" name="researcher" required></select>
+        </div>
+        <div class="col-4">
+          <label for="status">Status</label>
+          <select id="status" name="status" required>
+            <option>In progress</option>
+            <option>Completed</option>
+            <option>Yet to Assign</option>
+            <option>On Hold</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="foa">FOA</label>
+          <select id="foa" name="foa" required>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label for="requestDetails">Request Details</label>
+          <textarea id="requestDetails" name="requestDetails" placeholder="Paste large email content here" required></textarea>
+        </div>
+        <div class="col-4">
+          <label for="noOfCompanies">No. of Companies</label>
+          <input type="number" id="noOfCompanies" name="noOfCompanies" min="0" required />
+        </div>
+        <div class="col-4">
+          <label for="complexity">Complexity</label>
+          <select id="complexity" name="complexity" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="Alerts">Alerts</option>
+            <option value="NRA">NRA</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <label for="requestType">Request Type</label>
+          <select id="requestType" name="requestType" required></select>
+        </div>
+      </div>
+
+      <h3>Researcher Section – Databases & Time</h3>
+      <div class="db-rows" id="dbRows"></div>
+      <div class="actions">
+        <button type="button" class="primary" id="addDbRow">+ Add Database</button>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="timeStarted">Time Started</label>
+          <input type="datetime-local" id="timeStarted" name="timeStarted" />
+        </div>
+        <div class="col-4">
+          <label for="timeEnded">Time Ended</label>
+          <input type="datetime-local" id="timeEnded" name="timeEnded" />
+        </div>
+        <div class="col-4">
+          <label for="timeSpent">Time Spent (auto)</label>
+          <input type="text" id="timeSpent" name="timeSpent" placeholder="e.g., 45 min" readonly />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="primary">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" style="display:none;">
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <h3 id="modalTitle">Full Content</h3>
+        <button class="modal__close" data-action="close-modal" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody" class="modal__body"></div>
+      <div class="modal__footer">
+        <button class="primary" data-action="close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BIS Workflow Management – Completed Tasks</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body data-page="completed">
+  <header>
+    <h1>BIS Workflow Management</h1>
+    <nav>
+  <a class="nav-link" href="status_dashboard.html">Status Dashboard</a>
+  <a class="nav-link" href="workflow_form.html">Workflow Form</a>
+  <a class="nav-link" href="completed.html">Completed Tasks</a>
+</nav>
+  </header>
+  <main>
+    <h2>Completed Tasks</h2>
+    <div class="filters">
+      <label for="complexityFilter">Complexity:</label>
+      <select id="complexityFilter">
+        <option value="All">All</option>
+        <option value="1">1 (Tier 1)</option>
+        <option value="2">2 (Tier 2)</option>
+        <option value="3">3 (Tier 3)</option>
+        <option value="Alerts">Alerts</option>
+        <option value="NRA">NRA</option>
+      </select>
+
+      <label for="completedResearcherFilter">Researcher:</label>
+      <select id="completedResearcherFilter"></select>
+
+      <label for="dateRangeStart">Date Start:</label>
+      <input type="date" id="dateRangeStart" />
+      <label for="dateRangeEnd">Date End:</label>
+      <input type="date" id="dateRangeEnd" />
+
+      <button class="primary" id="btnExport">Export</button>
+    </div>
+    <div class="table-wrap">
+      <table id="completedTable">
+        <thead></thead>
+        <tbody id="completedBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" style="display:none;">
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <h3 id="modalTitle">Full Content</h3>
+        <button class="modal__close" data-action="close-modal" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody" class="modal__body"></div>
+      <div class="modal__footer">
+        <button class="primary" data-action="close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

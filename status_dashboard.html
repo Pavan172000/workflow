@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BIS Workflow Management – Status Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="status_dashboard">
+  <header>
+    <h1>BIS Workflow Management</h1>
+    <nav>
+  <a class="nav-link" href="status_dashboard.html">Status Dashboard</a>
+  <a class="nav-link" href="workflow_form.html">Workflow Form</a>
+  <a class="nav-link" href="completed.html">Completed Tasks</a>
+</nav>
+  </header>
+  <main>
+    <h2>Status Dashboard</h2>
+    <div class="filters">
+      <label for="statusFilter">Status:</label>
+      <select id="statusFilter">
+        <option value="All">All</option>
+        <option value="In progress">In progress</option>
+        <option value="Completed">Completed</option>
+        <option value="Yet to Assign">Yet to Assign</option>
+        <option value="On Hold">On Hold</option>
+      </select>
+
+      <label for="researcherFilter">Researcher:</label>
+      <select id="researcherFilter"></select>
+    </div>
+    <div class="table-wrap">
+      <table id="dashboardTable">
+        <thead></thead>
+        <tbody id="dashboardBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" style="display:none;">
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <h3 id="modalTitle">Full Content</h3>
+        <button class="modal__close" data-action="close-modal" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody" class="modal__body"></div>
+      <div class="modal__footer">
+        <button class="primary" data-action="close-modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+/* ====== Global (compact++++) ====== */
+:root {
+  --brand: #42145F;
+  --brand-100: #E8EAF6;
+  --text: #333;
+  --bg: #f7f8fb;
+  --border: #e0e0e0;
+
+  /* Accents for section differentiation */
+  --accent-teal: #0F766E;
+  --accent-teal-100: #E6F5F2;
+  --accent-purple-100: #F4EFFA; /* soft brand tint */
+  --accent-purple-border: #D8C7E8;
+}
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  padding: 10px;
+  margin: 0;
+  color: #333;
+  line-height: 1.5;
+}
+header {
+  background-color: var(--brand);
+  color: #fff;
+  padding: 8px 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border-radius: 8px;
+}
+h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+h2 {
+  color: var(--brand);
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 6px;
+  margin: 10px 0 8px;
+}
+nav {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+nav .nav-link {
+  display: inline-block;
+  background: #fff;
+  color: var(--brand);
+  font-weight: 600;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+}
+nav .nav-link:hover {
+  background: #f2f2f9;
+}
+main {
+  max-width: 1400px;
+  margin: 10px auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.04);
+}
+.health {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #8a6d3b;
+}
+.health.ok {
+  color: #2e7d32;
+}
+
+/* Forms */
+label {
+  font-weight: 600;
+  color: var(--brand);
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+}
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+form .row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  align-items: end;
+}
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-3 { grid-column: span 3; }
+.col-2 { grid-column: span 2; }
+.col-12 { grid-column: span 12; }
+.actions {
+  margin-top: 10px;
+}
+button.primary {
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+button.primary:hover {
+  filter: brightness(0.96);
+}
+
+/* Readonly style for NRA freeze */
+input.readonly[readonly], input[readonly] {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+/* Filters - Updated to fit in one line */
+.filters {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 6px;
+  justify-content: space-between;
+}
+.filters label {
+  margin-right: 2px;
+  color: #555;
+  font-weight: 600;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.filters input,
+.filters select,
+.filters button {
+  padding: 4px 6px;
+  font-size: 10px;
+  min-width: 80px;
+  max-width: 140px;
+  flex-shrink: 1;
+  white-space: nowrap;
+}
+
+/* Database rows */
+.db-rows {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  background: #fafafe;
+}
+.db-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 90px;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.db-row .remove {
+  background: #fff;
+  color: #b00020;
+  border: 1px solid #f1c3c8;
+}
+
+/* Tables */
+.table-wrap {
+  overflow: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  table-layout: auto;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+  overflow: hidden;
+}
+th {
+  background: var(--brand-100);
+  color: var(--brand);
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  word-break: keep-all;
+  white-space: normal;
+}
+td {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+tr:nth-child(even) {
+  background: #fbfbff;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Column widths */
+td[data-col="clientEmail"] { max-width: 220px; }
+td[data-col="requestType"] { max-width: 200px; }
+td[data-col="workflowName"] { max-width: 220px; }
+td[data-col="requestDetails"] { max-width: 420px; }
+
+/* Truncation */
+.truncate-1 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.linklike {
+  margin-top: 4px;
+  background: none;
+  border: none;
+  color: #1a73e8;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 10px;
+}
+
+/* Actions column */
+.actions-col, .actions-cell {
+  white-space: nowrap !important;
+}
+.actions-cell {
+  width: 1%;
+}
+.actions-cell, .actions-cell * {
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+}
+.table-btn {
+  display: inline-block;
+  padding: 4px 7px;
+  font-size: 10px;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+}
+.table-btn + .table-btn {
+  margin-left: 6px;
+}
+.table-btn:hover {
+  background: #f7f7ff;
+}
+
+/* ===== Icon-only Edit/Delete buttons ===== */
+/* Apply classes: .table-btn.btn-icon.btn-edit or .table-btn.btn-icon.btn-delete */
+.table-btn.btn-icon {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: var(--brand);
+  position: relative;
+  /* Hide any button text visually to make it icon-only */
+  font-size: 0;
+}
+.table-btn.btn-icon:hover {
+  background: #f7f7ff;
+}
+.table-btn.btn-icon:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+  background: #eef4ff;
+}
+/* The icon as a masked pseudo element (inherits currentColor) */
+.table-btn.btn-icon::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Pencil / Edit icon */
+.table-btn.btn-icon.btn-edit {
+  color: var(--brand);
+  border-color: var(--border);
+}
+.table-btn.btn-icon.btn-edit::before {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.33H5v-.92l9.06-9.06.92.92L5.92 19.58zM20.71 7.04c.39-.39.39-1.02 0-1.41L18.37 3.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>\
+</svg>');
+          mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.33H5v-.92l9.06-9.06.92.92L5.92 19.58zM20.71 7.04c.39-.39.39-1.02 0-1.41L18.37 3.29a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>\
+</svg>');
+}
+
+/* Trash / Delete icon */
+.table-btn.btn-icon.btn-delete {
+  color: #b00020;
+  border-color: #f1c3c8;
+}
+.table-btn.btn-icon.btn-delete:hover {
+  background: #fff5f6;
+}
+.table-btn.btn-icon.btn-delete::before {
+  -webkit-mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d="M6 7h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 7zm3-3h6l1 1h4v2H4V5h4l1-1z"/>\
+</svg>');
+          mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d="M6 7h12l-1 12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 7zm3-3h6l1 1h4v2H4V5h4l1-1z"/>\
+</svg>');
+}
+
+/* Visually hidden helper (keep for a11y if you include readable text) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Table font sizes */
+#dashboardTable th, #completedTable th {
+  font-size: 12px;
+}
+#dashboardTable td, #completedTable td {
+  font-size: 9.5px;
+}
+
+/* Taller viewport for data pages */
+body[data-page="status_dashboard"] .table-wrap,
+body[data-page="completed"] .table-wrap {
+  max-height: calc(100vh - 160px);
+}
+
+/* ===== Section styles for Workflow Manager vs Researcher ===== */
+.section-block {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  background: #fff;
+}
+
+/* Workflow Manager section (purple tint using brand) */
+.workflow-manager, #workflowManagerSection {
+  background: var(--accent-purple-100);
+  border-color: var(--accent-purple-border);
+  border-left: 4px solid var(--brand);
+}
+.workflow-manager h3, .workflow-manager h4, .workflow-manager label,
+#workflowManagerSection h3, #workflowManagerSection h4, #workflowManagerSection label {
+  color: var(--brand);
+}
+
+/* Researcher section (teal for contrast) */
+.researcher, #researcherSection {
+  background: var(--accent-teal-100);
+  border-color: #BEE7DD;
+  border-left: 4px solid var(--accent-teal);
+}
+.researcher h3, .researcher h4, .researcher label,
+#researcherSection h3, #researcherSection h4, #researcherSection label {
+  color: var(--accent-teal);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .col-6 { grid-column: span 12; }
+  .col-4 { grid-column: span 12; }
+  .col-3 { grid-column: span 6; }
+  .db-row { grid-template-columns: 1fr 110px 80px; }
+  td[data-col="requestDetails"] { max-width: 320px; }
+  .section-block { padding: 8px; }
+}
